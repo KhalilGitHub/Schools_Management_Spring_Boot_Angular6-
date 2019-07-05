@@ -1,0 +1,47 @@
+
+<a class="nav-link" href="javascript:void(0)" routerLink="/admindashboard" routerLinkActive="active">Retour >>
+  Dashboard</a>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header bg-info text-white">Entrer le matricule de l'Inscription a Modifier</div>
+      <div class="card-body">
+
+        <form action="" [formGroup]="inscriptionForm" enctype="multipart/form-data">
+
+          <div class="form-group">
+            <label>Matricle: </label>
+            <input type="text" formControlName="image" id="image" required [(ngModel)]="image"
+              name="image" />
+            <button class="btn btn-outline-success" [disabled]="inscriptionForm.prestine || inscriptionForm.invalid"
+              (click)="onSubmit()">Rechercher</button>
+          </div>
+          <div class="alert alert-danger" *ngIf="inscriptionForm.controls['image'].invalid && 
+              (inscriptionForm.controls['image'].touched || inscriptionForm.controls['image'].derty)">
+            Le Matricle est obligatoire!!!
+
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+      </div>
+    </div>
+
+
+
+<div *ngIf="imageFind">
+    <div class="container">
+      <h1 class="my-4 text-center text-lg-left">Listes des Images</h1>
+      <div class="row text-center text-lg-left">
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <a href="#" class="d-block mb-4 h-100">
+            <img src="" alt="" class="img-circle img-fluid img-thumbnail" [src]="imageFind"
+              style="height:100px; width:fit-content;">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
